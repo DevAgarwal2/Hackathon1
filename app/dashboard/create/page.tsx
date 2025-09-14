@@ -159,6 +159,8 @@ export default function ImageGenerator() {
               className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
             />
             <p className="text-xs text-gray-500 mt-1">Maximum 3 variations allowed per generation</p>
+            <p className="text-xs text-gray-500 mt-1">It will take 1-2 min to generate</p>
+
           </div>
           <br />
           <Button
@@ -205,7 +207,6 @@ export default function ImageGenerator() {
                 </div>
                 <div className="p-4 text-xs text-gray-600 bg-gray-50">
                   <p><strong>Theme:</strong> {item.creative_concept?.background_theme || "N/A"}</p>
-                  <p><strong>Rationale:</strong> {item.creative_concept?.rationale || "N/A"}</p>
                   <p><strong>Source:</strong> {item.prompt_source}</p>
                 </div>
               </div>

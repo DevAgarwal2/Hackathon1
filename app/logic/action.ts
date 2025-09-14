@@ -48,19 +48,22 @@ interface FalImageEditResult {
  * Uploads an image buffer to FAL storage.
  */
 async function uploadToFal(imageBuffer: Buffer, filename: string): Promise<string> {
-    try {
-      // Create a `File` object instead of a `Blob`.
-      const imageFile = new File([imageBuffer], filename, { type: 'image/png' });
-      
-      // Call `upload` with only the single `File` object as the argument.
-      const url = await fal.storage.upload(imageFile);
-      
-      return url;
-    } catch (error) {
-      console.error('FAL upload failed:', error);
-      throw new Error('Failed to upload image to FAL storage.');
-    }
+  try {
+    // Convert Buffer to Uint8Array to ensure compatibility with File constructor
+    const uint8Array = new Uint8Array(imageBuffer);
+    
+    // Create a File object with the converted buffer
+    const imageFile = new File([uint8Array], filename, { type: 'image/png' });
+    
+    // Call upload with the File object
+    const url = await fal.storage.upload(imageFile);
+    
+    return url;
+  } catch (error) {
+    console.error('FAL upload failed:', error);
+    throw new Error('Failed to upload image to FAL storage.');
   }
+}
 
 /**
  * Cleans and validates a JSON string from the AI response.

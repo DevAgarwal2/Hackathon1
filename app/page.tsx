@@ -1,8 +1,8 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card,  CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Camera, Sparkles, Zap, Users, ArrowRight, Upload, Eye, Download } from 'lucide-react';
+import { Camera, Sparkles, Zap, Users,  Upload, Eye, Download } from 'lucide-react';
 import AuthButton from '@/component/AuthButton';
 import Link from 'next/link';
 
