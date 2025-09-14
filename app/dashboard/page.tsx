@@ -1,9 +1,11 @@
+import Dashboardcomp from "@/component/dashboardPage";
 
 
 export default function DashboardPage(){
     return (
-       <div>
-        Dashboard Page
-       </div>
+        <div>
+            <Dashboardcomp />
+        </div>
+       
     );
 }

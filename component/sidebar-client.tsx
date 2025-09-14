@@ -24,8 +24,8 @@ const navData = [
   {
     title: "Main",
     items: [
-      { title: "Home", url: "/dashboard" },
-      { title: "Create", url: "/dashboard/create" },
+      { title: "Dashboard", url: "/dashboard" },
+      
       { title: "AI Tools", url: "/dashboard/tools" },
     ],
   },
@@ -41,7 +41,7 @@ export function SidebarClient({
 
   return (
     <Sidebar {...props}>
-      <SidebarHeader>PhotoAI Hackathon</SidebarHeader>
+      <SidebarHeader>MVP for Hackathon</SidebarHeader>
 
       <SidebarContent>
         {navData.map((group) => (
@@ -52,6 +52,7 @@ export function SidebarClient({
                 {group.items.map((item) => (
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton
+                      id={`sidebar-menu-${item.url.replace(/\//g, "-")}`} 
                       asChild
                       isActive={pathname === item.url}
                     >
