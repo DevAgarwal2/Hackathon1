@@ -189,34 +189,55 @@ export default function PhotoCraftLanding() {
               See the Transformation
             </h2>
             <p className="text-lg text-gray-700">
-              From raw product photos to stunning visuals — powered by AI.
+              From raw product photos to{" "}
+              <span className="font-semibold text-gray-900">
+                stunning visuals
+              </span>{" "}
+              — powered by AI.
             </p>
           </div>
 
-          <Card className="p-10 bg-white/70 backdrop-blur-xl shadow-xl rounded-2xl">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
+          <Card className="p-10 bg-white/80 backdrop-blur-xl shadow-xl rounded-2xl">
+            <div className="grid md:grid-cols-2 gap-10 items-center">
               {/* Before */}
               <div>
                 <h3 className="text-lg font-semibold mb-4 text-gray-800">
                   Before
                 </h3>
-                <div className="aspect-square bg-gray-100 rounded-xl flex items-center justify-center">
-                  <div className="text-center text-muted-foreground">
-                    <Camera className="h-12 w-12 mx-auto mb-2" />
-                    <p>Original Product Photo</p>
-                  </div>
+                <div className="aspect-square rounded-xl overflow-hidden shadow-md bg-gray-100 flex items-center justify-center">
+                  <Image
+                    src="/demo_before.jpg"
+                    alt="Unedited product photo"
+                    width={500}
+                    height={500}
+                    className="object-cover w-full h-full"
+                  />
                 </div>
               </div>
-              {/* After */}
+
+              {/* After (badge placed INSIDE the image wrapper) */}
               <div>
                 <h3 className="text-lg font-semibold mb-4 text-gray-800">
                   After
                 </h3>
-                <div className="aspect-square bg-gradient-to-br from-blue-100 to-indigo-200 rounded-xl flex items-center justify-center">
-                  <div className="text-center text-blue-700">
-                    <Sparkles className="h-12 w-12 mx-auto mb-2" />
-                    <p>Enhanced Result</p>
-                  </div>
+
+                {/* make this wrapper relative so the badge is positioned over the image */}
+                <div className="aspect-square relative rounded-xl overflow-hidden shadow-lg border-2 border-blue-200">
+                  {/* Use `fill` (Next/Image) or width/height — fill makes it fully responsive inside the wrapper */}
+                  <Image
+                    src="/demo_after.png"
+                    alt="Enhanced product photo with AI"
+                    fill
+                    className="object-cover"
+                  />
+
+                  {/* badge is now absolutely positioned relative to the image wrapper */}
+                  <span
+                    className="absolute top-3 right-3 z-20 inline-flex items-center gap-2 bg-blue-600 text-white text-xs font-medium px-3 py-1 rounded-full shadow-md"
+                    aria-hidden="true"
+                  >
+                    ✨ Enhanced with AI
+                  </span>
                 </div>
               </div>
             </div>
