@@ -1,6 +1,7 @@
 "use client";
 
-import React from "react";
+import AuthButton from "@/component/AuthButton";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -8,20 +9,19 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { motion } from "framer-motion";
 import {
   Camera,
-  Sparkles,
-  Zap,
-  Users,
-  Upload,
-  Eye,
   Download,
+  Eye,
+  Sparkles,
+  Upload,
+  Users,
+  Zap,
 } from "lucide-react";
-import AuthButton from "@/component/AuthButton";
-import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import Link from "next/link";
+import { Slider } from "@/component/Slider";
 
 export default function PhotoCraftLanding() {
   return (
@@ -79,17 +79,17 @@ export default function PhotoCraftLanding() {
                 className="bg-blue-600 hover:bg-blue-700 shadow-lg rounded-2xl px-8 py-6 text-lg"
               >
                 <Link href="/login" className="flex items-center">
-                  ✨ Start Free
+                  Start Free
                 </Link>
               </Button>
-              <Button
+              {/* <Button
                 variant="outline"
                 size="lg"
                 className="rounded-2xl px-8 py-6 text-lg"
               >
                 <Eye className="mr-2 h-5 w-5" />
                 Watch Demo
-              </Button>
+              </Button> */}
             </div>
           </motion.div>
 
@@ -101,16 +101,19 @@ export default function PhotoCraftLanding() {
             className="relative"
           >
             <div className="aspect-square rounded-2xl bg-gradient-to-br from-blue-100 to-indigo-200 shadow-xl flex items-center justify-center">
-              <div className="text-center">
+              {/* <div className="text-center">
                 <Camera className="h-16 w-16 text-blue-600 mx-auto mb-4" />
                 <p className="text-gray-700 font-medium">
                   Product Photo Transformation
                 </p>
+              </div> */}
+              <div className="h-full w-full">
+                <Slider />
               </div>
             </div>
             {/* Optional floating badge */}
             <div className="absolute -top-6 -right-6 bg-white rounded-xl shadow-md px-4 py-2 text-sm font-medium text-blue-700">
-              ⚡ 10s Results
+              10s Results
             </div>
           </motion.div>
         </div>
@@ -247,7 +250,9 @@ export default function PhotoCraftLanding() {
                 size="lg"
                 className="bg-blue-600 hover:bg-blue-700 rounded-2xl px-8 py-6 text-lg shadow-lg"
               >
-                Try It Yourself
+                <Link href="/login" className="flex items-center">
+                  Try It Yourself
+                </Link>
               </Button>
             </div>
           </Card>
@@ -271,16 +276,18 @@ export default function PhotoCraftLanding() {
               size="lg"
               className="bg-blue-600 hover:bg-blue-700 text-white rounded-2xl shadow-lg text-lg px-8 py-6"
             >
-              <Users className="mr-2 h-5 w-5" />
-              Start Free Today
+              <Link href="/login" className="flex items-center">
+                <Users className="mr-2 h-5 w-5" />
+                Start Free Today
+              </Link>
             </Button>
-            <Button
+            {/* <Button
               variant="outline"
               size="lg"
               className="rounded-2xl px-8 py-6 text-lg"
             >
               See How It Works
-            </Button>
+            </Button> */}
           </div>
         </div>
       </section>
